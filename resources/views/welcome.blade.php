@@ -80,7 +80,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <span class="test">Laravel - HELLO WORLD</span>
+                    <span class="test">Laravel</span>
+                    <a href="test">click here</a>
                 </div>
 
                 <div class="links">
