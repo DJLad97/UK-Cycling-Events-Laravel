@@ -15,7 +15,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div class="container">
+        @include('layouts.nav')
+        @yield('content')
+    </div>
+    {{--  <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -27,7 +31,6 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
@@ -73,8 +76,7 @@
         </nav>
 
         @yield('content')
-    </div>
-
+    </div>  --}}
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
