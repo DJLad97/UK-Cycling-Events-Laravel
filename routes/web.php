@@ -22,3 +22,5 @@ Route::get('/test', function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/races', 'RacesController@index');
+Route::get('/races/{race}', 'RacesController@show');
