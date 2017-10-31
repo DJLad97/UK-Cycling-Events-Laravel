@@ -16,6 +16,7 @@
 </head>
 <body>
     <div class="container">
+    test
         @include('layouts.nav')
         @yield('content')
     </div>
