@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class RaceSignUp extends Model
 {
-    //
+    protected $guarded = [''];
 }

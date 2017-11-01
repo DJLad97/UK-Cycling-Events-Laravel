@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Race;
+use Illuminate\Support\Facades\Auth;
 
-class RacesController extends Controller
+use App\RaceSignUp;
+use App\User;
+
+class RaceSignUpsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +17,7 @@ class RacesController extends Controller
      */
     public function index()
     {
-        $races = Race::all();
-        
-        return view('races.index', compact('races'));
+        //
     }
 
     /**
@@ -37,7 +38,13 @@ class RacesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $raceSignUp = new RaceSignUp;
+        $user = new User;
+        $userID = Auth::id();
+        $user = User::find($userID);
+        $request->request->add(['userID' => $userID]);
+        $request->request->add(['name' => $user->name]);
+        RaceSignUp::create(request(['raceID', 'userID', 'name', 'ageRange', 'gender']));
     }
 
     /**
@@ -46,9 +53,9 @@ class RacesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Race $race)
+    public function show($id)
     {
-        return view('races.race', compact('race'));
+        //
     }
 
     /**
