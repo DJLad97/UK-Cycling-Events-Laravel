@@ -5,18 +5,40 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
 
-window.Vue = require('vue');
+// window.Vue = require('vue');
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+// /**
+//  * Next, we will create a fresh Vue application instance and attach it to
+//  * the page. Then, you may begin adding components to this application
+//  * or customize the JavaScript scaffolding to fit your unique needs.
+//  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
-    el: '#app'
+// const app = new Vue({
+//     el: '#app'
+// });
+
+$(document).ready(function(){
+
+    $('#login').click(function(){
+        $('#login-modal').css('display', 'block');
+    });
+
+    $('.close').click(function(){
+        $('#login-form').removeClass('animate');
+        $('#login-form').addClass('close-animate');
+    })
+ 
+    // var modal = document.getElementById('login-modal');
+
+
+    // window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = "none";
+    //     }
+    // }
+
 });

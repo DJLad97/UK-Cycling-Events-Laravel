@@ -18,10 +18,17 @@
             {{ csrf_field() }}
             <input type="hidden" name="raceID" value="{{$race->raceID}}">
             <div class="form-group">
-                <select class="form-control" name="gender" required>
+                {{--  <select class="form-control" name="gender" required>
                     <option value="M">M</option>
                     <option value="F">F</option>
-                </select>
+                </select>  --}}
+                <label for="gender">Gender</label>
+                <input type="radio" name="gender" checked="checked" value="M" required>
+                    Male
+                </input>
+                <input type="radio" name="gender" checked="checked" value="F" required>
+                    Female
+                </input>
             </div>
             <div class="form-group">
                 <select class="form-control" name="ageRange" required>
