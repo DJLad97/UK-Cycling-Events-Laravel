@@ -38,13 +38,13 @@ class RaceSignUpsController extends Controller
      */
     public function store(Request $request)
     {
-        $raceSignUp = new RaceSignUp;
         $user = new User;
         $userID = Auth::id();
         $user = User::find($userID);
-        $request->request->add(['userID' => $userID]);
-        $request->request->add(['name' => $user->name]);
+        $request->merge(array('userID' => $userID, 'name' => $user->name));
         RaceSignUp::create(request(['raceID', 'userID', 'name', 'ageRange', 'gender']));
+
+        return view('races.index');
     }
 
     /**
