@@ -68,7 +68,8 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(2);
+__webpack_require__(2);
+module.exports = __webpack_require__(3);
 
 
 /***/ }),
@@ -109,6 +110,10 @@ $(document).ready(function () {
         $('#login-form').addClass('close-animate');
     });
 
+    $('header nav').ready(function () {
+        $('header nav').meanmenu();
+    });
+
     // var modal = document.getElementById('login-modal');
 
 
@@ -121,6 +126,12 @@ $(document).ready(function () {
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
