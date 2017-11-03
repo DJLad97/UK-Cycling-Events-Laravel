@@ -5,10 +5,26 @@
 // Variables
 @import "variables";
 
-$primary-color: #abc123;
+@font-face {
+    font-family: MacFont;
+    src: url('/fonts/system_san_francisco_display_thin-webfont.woff2'); 
 
-.test{
-    color: $primary-color;
+    // src: url('public/fonts/system_san_francisco_display_thin-webfont.woff2') format('woff2'),
+        // url('public/fonts/system_san_francisco_display_thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+$font-stack: MacFont;
+
+body{
+    font-family: $font-stack;
+}
+
+
+#container-content{
+    padding-top: 55px;
 }
 
 .modal{
