@@ -1,2 +1,22 @@
-    <h1><a href="/">UK Cycling Events NAV</a></h1>
-    <a href="/races">MTB & ROAD</a>
+<header>
+    <nav class="navbar navbar-fixed-top" style="display: block;">
+        <ul>
+            <li><a href="/">UK CYCLING EVENTS &nbsp; |</a></li>
+            <li><a href="{{ route('races') }}">RACES</a></li>
+            @guest
+            <li><a id="login" >SIGN IN</a></li>
+            <li><a href="{{ route ('register') }}">SIGN UP</a></li>
+            @else
+            <li><a href="/profile"> {{ Auth::user()->name }} </a></li>
+            <li>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">LOGOUT</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </li>
+            @endguest
+        </ul>
+    </nav>
+</header>
+
