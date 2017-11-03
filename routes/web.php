@@ -22,7 +22,7 @@ Route::get('/test', function(){
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/races', 'RacesController@index');
+Route::get('/races', 'RacesController@index')->name('races');
 Route::get('/races/{race}', 'RacesController@show');
 
 Route::post('/raceSignUps', 'RaceSignUpsController@store');
