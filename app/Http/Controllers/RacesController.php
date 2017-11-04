@@ -7,6 +7,18 @@ use App\Race;
 
 class RacesController extends Controller
 {
+
+    public function search(Request $request)
+    {   
+        // $race = Race::find(1);
+        // $data = $request->all();
+        // dd($race);
+        // return response()->json($request->all());
+        
+        // dd($request->all());
+        $race = Race::raceLike($request->searchTerm);
+        return response()->json($race);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +26,9 @@ class RacesController extends Controller
      */
     public function index()
     {
+        // return view('races.index');
         return view('races.index');
+        
     }
 
     /**
