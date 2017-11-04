@@ -14,8 +14,8 @@ class CreateRaceSignUpsTable extends Migration
     public function up()
     {
         Schema::create('race_sign_ups', function (Blueprint $table) {
-            $table->integer('raceID');
-            $table->integer('userID');
+            $table->integer('race_id');
+            $table->integer('user_id');
             $table->string('name', 100);
             $table->enum('gender', ['M', 'F']);
             $table->string('ageRange', 10);
