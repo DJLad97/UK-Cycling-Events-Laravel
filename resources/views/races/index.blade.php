@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    @foreach($races as $race)
-        <li><a href="races/{{$race->raceID}}">{{ $race->raceName }}</a></li>
-    @endforeach
+    <input type="text" class="text-box" id="searchTerm" name="searchTerm" autocomplete="off" placeholder="Race Name/Type">
+    <ul id="content"></ul>
+    <div id="initial-results">
+        @foreach($races as $race)
+            <li><a href="/races/{{$race->id}}">{{ $race->raceName }}</a></li>
+        @endforeach
+    </div>
 @endsection
