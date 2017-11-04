@@ -1,25 +1,70 @@
+$nav-background: rgba(14, 14, 14, 0);
+
 .navbar {
     // text-align: center;
     background-color: rgba(14, 14, 14, 0.4);
     border-style: none;
 }
 
-header nav {
-    text-align: center;
-    background: rgba(14,14,14,0.4);
+header {
+    nav {
+        text-align: center;
+        background: $nav-background;
+        ul {
+            margin: 0;
+            padding: 1em;
+            list-style-type: none;
+        }
+
+        ul li { 
+            display: inline;
+            margin-left: 1em;
+        }
+
+        ul li:first-child {
+            margin-left: 0;
+            border-right: 1px solid #e9e9e9;
+        }
+
+        ul li ul{
+            display: none;
+        }
+
+        a{
+            color: #e9e9e9;
+            margin-right: 20px;
+        }
+        a:hover{
+            color: #ababab;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        a, a:hover{
+            transition: color 0.25s ease-in;
+        }
+        a:visited, a:link{
+            text-decoration: none;
+        }
+        
+    }
 }
-header nav ul {
-    margin: 0;
-    padding: 1em;
-    list-style-type: none;
-}
-header nav ul li {
-    display: inline;
-    margin-left: 1em;
-}
-header nav ul li:first-child {
-    margin-left: 0;
-}
-header nav ul li ul {
-    display: none;
-}
+
+// header nav {
+//     text-align: center;
+//     background: rgba(14,14,14,0.4);
+// }
+// header nav ul {
+//     margin: 0;
+//     padding: 1em;
+//     list-style-type: none;
+// }
+// header nav ul li {
+//     display: inline;
+//     margin-left: 1em;
+// }
+// header nav ul li:first-child {
+//     margin-left: 0;
+// }
+// header nav ul li ul {
+//     display: none;
+// }

@@ -23,14 +23,14 @@
 
 $(document).ready(function(){
 
-    $('#login').click(function(){
+    $('.login').click(function(){
         $('#login-modal').css('display', 'block');
     });
 
-    $('.close').click(function(){
-        $('#login-form').removeClass('animate');
-        $('#login-form').addClass('close-animate');
-    });
+    // $('.close').click(function(){
+    //     $('#login-form').removeClass('animate');
+    //     $('#login-form').addClass('close-animate');
+    // });
 
     $('header nav').ready(function(){
         $('header nav').meanmenu();
