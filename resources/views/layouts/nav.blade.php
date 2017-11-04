@@ -1,10 +1,10 @@
 <header>
     <nav class="navbar navbar-fixed-top" style="display: block;">
         <ul>
-            <li><a href="/">UK CYCLING EVENTS &nbsp; |</a></li>
+            <li><a href="/">UK CYCLING EVENTS</a></li>
             <li><a href="{{ route('races') }}">RACES</a></li>
             @guest
-            <li><a id="login" >SIGN IN</a></li>
+            <li><a class="login">SIGN IN</a></li>
             <li><a href="{{ route ('register') }}">SIGN UP</a></li>
             @else
             <li><a href="/profile"> {{ Auth::user()->name }} </a></li>
@@ -16,6 +16,7 @@
                 </form>
             </li>
             @endguest
+            <li><a href="">CART</a></li>
         </ul>
     </nav>
 </header>
