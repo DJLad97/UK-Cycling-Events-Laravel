@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 use App\RaceSignUp;
 use App\User;
@@ -38,13 +39,11 @@ class RaceSignUpsController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User;
-        $userID = Auth::id();
-        $user = User::find($userID);
-        $request->merge(array('userID' => $userID, 'name' => $user->name));
-        RaceSignUp::create(request(['raceID', 'userID', 'name', 'ageRange', 'gender']));
+        Auth::user()->signUp(
+            new RaceSignUp(request(['race_id', 'name', 'ageRange', 'gender']))
+        );
 
-        return view('races.index');
+        return Redirect::to('/races');
     }
 
     /**

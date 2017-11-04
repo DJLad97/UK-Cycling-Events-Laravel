@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function raceSignUps()
+    {
+        return $this->hasMany(RaceSignUp::class);
+    }
+
+    public function signUp(RaceSignUp $raceSignUps)
+    {
+        $this->raceSignUps()->save($raceSignUps);
+    }
 }
