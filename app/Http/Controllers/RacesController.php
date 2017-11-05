@@ -10,12 +10,6 @@ class RacesController extends Controller
 
     public function search(Request $request)
     {   
-        // $race = Race::find(1);
-        // $data = $request->all();
-        // dd($race);
-        // return response()->json($request->all());
-        
-        // dd($request->all());
         $race = Race::raceLike($request->searchTerm);
         return response()->json($race);
     }
@@ -26,9 +20,14 @@ class RacesController extends Controller
      */
     public function index()
     {
-        // return view('races.index');
-        return view('races.index');
-        
+        // $items = [];
+        // \Cart::getContent()->each(function($item) use (&$items){
+        //     $items[] = $item;
+        // });
+
+        $cart = \Cart::getContent()->toArray();
+        // dd($cart->name);
+        return view('races.index', compact('cart'));
     }
 
     /**

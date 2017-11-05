@@ -1,3 +1,5 @@
+// RENAME THIS TO ajax.js
+
 $(document).ready(function(){
     $.ajaxSetup({
         headers: {
@@ -6,6 +8,10 @@ $(document).ready(function(){
     });
     // $('#raceSearch').submit(function(e){
         // e.preventDefault();
+
+    function removeItem(){
+        console.log('removeItem called')
+    }
     $('#searchTerm').on('input', function(){
         var searchKeyword = $('#searchTerm').val();
         if(searchKeyword.length >= 1) {

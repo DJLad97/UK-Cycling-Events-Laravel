@@ -25,6 +25,12 @@ $(document).ready(function(){
 
     $('.login').click(function(){
         $('#login-modal').css('display', 'block');
+        $('#register-modal').css('display', 'none');
+    });
+
+    $('.register').click(function(){
+        $('#register-modal').css('display', 'block');
+        $('#login-modal').css('display', 'none');
     });
 
     // $('.close').click(function(){

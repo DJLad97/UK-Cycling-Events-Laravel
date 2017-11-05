@@ -5,7 +5,7 @@
             <li><a href="{{ route('races') }}">RACES</a></li>
             @guest
             <li><a class="login">SIGN IN</a></li>
-            <li><a href="{{ route ('register') }}">SIGN UP</a></li>
+            <li><a class="register">SIGN UP</a></li>
             @else
             <li><a href="/profile"> {{ Auth::user()->name }} </a></li>
             <li>

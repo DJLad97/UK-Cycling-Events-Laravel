@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use ShoppingcartServiceProvider;
 
 use App\RaceSignUp;
 use App\User;
+use App\Race;
 
 class RaceSignUpsController extends Controller
 {
@@ -42,6 +45,36 @@ class RaceSignUpsController extends Controller
         Auth::user()->signUp(
             new RaceSignUp(request(['race_id', 'name', 'ageRange', 'gender']))
         );
+        $itemID = uniqid();
+        $race = Race::where('id', $request->race_id)->first(['raceName', 'entryPrice']);    
+        $price = floatval($race->entryPrice);
+        $name = 'Race: ' . $race->raceName . ' Category: ' . $request->gender . ' ' . $request->ageRange;
+        \Cart::add(array(
+            'id' => $request->race_id,
+            'name' => $name,
+            'price' => $price,
+            'quantity' => 1,
+            'attributes' => array()
+        ));
+        // \Cart::add(array(
+        //     'id' => 457,
+        //     'name' => 'Sample Item',
+        //     'price' => 67.99,
+        //     'quantity' => 4,
+        //     'attributes' => array()
+        // ));
+        // echo $race->raceName;
+        // // \Cart::add('1234', 'Parkwood Loop');
+        // \Cart::add(array(
+        //     'id' => $itemID,
+        //     'name'
+        // ));
+        // \Cart::add(455, 'Sample Item', 100.99, 2, array());
+        // $race = Race::find($request->race_id);
+
+
+        // $raceArr = array('Name' => $raceName, 'Category' => $request->ageRange, 'Gender' => $request->gender);
+        // Session::push('cart', $raceArr);
 
         return Redirect::to('/races');
     }
