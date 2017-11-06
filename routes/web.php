@@ -26,4 +26,5 @@ Route::get('/races', 'RacesController@index')->name('races');
 Route::get('/races/{race}', 'RacesController@show');
 
 Route::post('/raceSearch', 'RacesController@search');
+Route::post('/removeCartItem', 'RacesController@removeCartItem');
 Route::post('/raceSignUps', 'RaceSignUpsController@store');
