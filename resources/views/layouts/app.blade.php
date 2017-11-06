@@ -89,5 +89,35 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/live-race-search.js') }}"></script>
     <script src="{{ asset('js/jquery.meanmenu.js') }}"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        function removeItem(id){
+            $.ajax({
+                dataType: 'json',
+                method: 'POST',
+                url: '/removeCartItem',
+                data: {'itemID': id},
+                success: function(data){
+                    var cart = data;
+                    {{--  console.log(data);  --}}
+                    $.each(data, function(){
+                        var key = Object.keys(this)[1];
+                        var val = this[key];
+                        console.log(val);
+                        $('#cart').html('<li>' + val + '</li>')
+                    });
+                    {{--  for (var item in cart){  --}}
+                        {{--  console.log(Object.values(data));  --}}
+                        
+                        {{--  $('.cart').html('<p>' + item.name + '</p>')  --}}
+                    {{--  }  --}}
+                }
+            });
+        }
+    </script>
 </body>
 </html>
