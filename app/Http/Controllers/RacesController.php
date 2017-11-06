@@ -13,6 +13,27 @@ class RacesController extends Controller
         $race = Race::raceLike($request->searchTerm);
         return response()->json($race);
     }
+
+    public function removeCartItem(Request $request)
+    {
+        \Cart::remove($request->itemID);
+        $newCart = \Cart::getContent()->toArray();
+
+        return response()->json($newCart);
+    }
+
+    public function cart(Request $request)
+    {
+        /*
+            Assign a new $cart object to current cart
+            Check if an ajax request
+                Remove cart item by getting id from $request
+                Call get cart content again to get the new updated cart
+            endif
+
+            return  view with cart object
+        */
+    }
     /**
      * Display a listing of the resource.
      *
