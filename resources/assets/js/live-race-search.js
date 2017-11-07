@@ -21,7 +21,6 @@ $(document).ready(function(){
                 url: '/raceSearch',
                 data: {'searchTerm': searchKeyword},
                 success: function(data){
-                    console.log(data);
                     $('ul#content').empty();
                     
                     $.each(data, function(){
