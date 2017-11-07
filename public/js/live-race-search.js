@@ -99,7 +99,6 @@ $(document).ready(function () {
                 url: '/raceSearch',
                 data: { 'searchTerm': searchKeyword },
                 success: function success(data) {
-                    console.log(data);
                     $('ul#content').empty();
 
                     $.each(data, function () {
