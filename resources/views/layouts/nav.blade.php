@@ -16,7 +16,15 @@
                 </form>
             </li>
             @endguest
-            <li><a href="">CART</a></li>
+            <li>
+            <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            CART<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+        </ul>
+    </div>
+            <a href="">CART</a></li>
         </ul>
     </nav>
 </header>
