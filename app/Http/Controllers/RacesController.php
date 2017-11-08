@@ -22,6 +22,12 @@ class RacesController extends Controller
         return response()->json($newCart);
     }
 
+    public function getCart()
+    {
+        $cart = \Cart::getContent()->toArray();
+        return response()->json($cart);
+    }
+
     public function cart(Request $request)
     {
         /*
@@ -41,14 +47,9 @@ class RacesController extends Controller
      */
     public function index()
     {
-        // $items = [];
-        // \Cart::getContent()->each(function($item) use (&$items){
-        //     $items[] = $item;
-        // });
-
         $cart = \Cart::getContent()->toArray();
-        // dd($cart->name);
-        return view('races.index', compact('cart'));
+        $races = \App\Race::raceList();
+        return view('races.index', compact('cart', 'races'));
     }
 
     /**
