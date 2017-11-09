@@ -14,7 +14,7 @@ class Race extends Model
 
     public static function raceLike($searchTerm)
     {
-        return static::where('raceName', 'like', '%' . $searchTerm . '%')->get();
+        return static::where('raceName', 'LIKE', '%' . $searchTerm . '%')->orWhere('raceType', 'LIKE', '%' . $searchTerm . '%')->get();
     }
 
 
