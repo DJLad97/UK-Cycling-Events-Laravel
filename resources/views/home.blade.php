@@ -6,5 +6,13 @@
 <h3>MTB RACES | ROAD RACES</h3>
 <h3>MTB RACE MAP | ROAD RACE MAP</h3>
 
-<div id="mtbMap"></div>
+<div class="row">
+    <div class="col-md-6 col-lg-6">
+        <div id="mtbMap"></div>
+    </div>
+
+    <div class="col-md-6 col-lg-6">
+        <div id="roadMap"></div>
+    </div>
+</div>
 @endsection
