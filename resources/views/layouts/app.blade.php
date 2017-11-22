@@ -18,7 +18,7 @@
     <link href="{{ asset('css/nav.css') }}" rel="stylesheet">
     <link href="{{ asset('css/meanmenu.css') }}" rel="stylesheet">
 </head>
-<body>test
+<body>
     @include('layouts.nav')
     @include('layouts.modals')
     {{--  {{var_dump($cart)}}  --}}
