@@ -23,6 +23,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/races', 'RacesController@index')->name('races');
+Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::get('/races/{race}', 'RacesController@show');
 Route::get('/getCart', 'RacesController@getCart');
 Route::get('/mtbRaces', 'RacesController@mtbRaces');
