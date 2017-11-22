@@ -21,6 +21,12 @@ class Race extends Model
     {
         return static::where('raceType', 'MTB')->get();
     }
+
+    public static function roadRaces()
+    {
+        return static::where('raceType', 'Road')->get();
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class);

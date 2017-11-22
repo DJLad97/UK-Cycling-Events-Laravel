@@ -26,6 +26,7 @@ Route::get('/races', 'RacesController@index')->name('races');
 Route::get('/races/{race}', 'RacesController@show');
 Route::get('/getCart', 'RacesController@getCart');
 Route::get('/mtbRaces', 'RacesController@mtbRaces');
+Route::get('/roadRaces', 'RacesController@roadRaces');
 
 Route::post('/raceSearch', 'RacesController@search');
 Route::post('/removeCartItem', 'RacesController@removeCartItem');
