@@ -28,6 +28,16 @@ header nav ul li ul {
   display: none;
 }
 
+header nav a:not([href]):not([tabindex]) {
+  color: #e9e9e9;
+  text-decoration: none;
+}
+
+header nav a:not([href]):not([tabindex]):hover {
+  color: #ababab;
+  text-decoration: none;
+}
+
 header nav a {
   color: #e9e9e9;
   margin-right: 20px;
@@ -48,5 +58,9 @@ header nav a:hover {
 header nav a:visited,
 header nav a:link {
   text-decoration: none;
+}
+
+header nav .dropdown {
+  display: inline;
 }
 

@@ -3,7 +3,7 @@
     <div class="col-xs-1 col-sm-3 col-md-4"></div>
     <form class="model-content animate col-xs-10 col-sm-6 col-md-4" method="post" action="{{route('login')}}" id="login-form">
         {{csrf_field() }}
-        <span onclick="document.getElementById('login-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <span onclick="document.getElementById('login-modal').style.display='none'" class="close a-pointer" title="Close Modal">&times;</span>
         <div id="error">
         </div>
         <div class="page-header">
@@ -42,7 +42,7 @@
     <div class="col-xs-1 col-sm-3 col-md-4"></div>
     <form class="model-content animate col-xs-10 col-sm-6 col-md-4" id="register-form" method="post" action="{{ route('register') }}">
         {{ csrf_field() }}
-        <span onclick="document.getElementById('register-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <span onclick="document.getElementById('register-modal').style.display='none'" class="close a-pointer" title="Close Modal">&times;</span>
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
             <label for="name">Name</label>
             <input id="name" type="text" class="text-box" name="name" value="{{ old('name') }}" required autofocus>

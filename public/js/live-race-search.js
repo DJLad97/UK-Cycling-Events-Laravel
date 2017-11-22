@@ -60,20 +60,20 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 4:
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(5);
+module.exports = __webpack_require__(7);
 
 
 /***/ }),
 
-/***/ 5:
+/***/ 7:
 /***/ (function(module, exports) {
 
 // RENAME THIS TO ajax.js
@@ -84,12 +84,23 @@ $(document).ready(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    // $('#raceSearch').submit(function(e){
-    // e.preventDefault();
+    $.ajax({
+        dataType: 'json',
+        method: 'GET',
+        url: '/getCart',
+        success: function success(data) {
+            var cart = data;
+            $('.dropdown-menu').empty();
+            $.each(data, function () {
+                var nameKey = Object.keys(this)[1];
+                var idKey = Object.keys(this)[0];
+                var name = this[nameKey];
+                var id = this[idKey];
+                $('.dropdown-menu').append('<li>' + name + '</li><input type="button" onclick="removeItem(' + id + ')" class="btn btn-danger" name="removeItem" id="removeItem" value="Remove">');
+            });
+        }
+    });
 
-    function removeItem() {
-        console.log('removeItem called');
-    }
     $('#searchTerm').on('input', function () {
         var searchKeyword = $('#searchTerm').val();
         if (searchKeyword.length >= 1) {

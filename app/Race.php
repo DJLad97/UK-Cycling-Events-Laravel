@@ -9,7 +9,7 @@ class Race extends Model
 {
     public static function raceList()
     {
-        return static::All();
+        return static::paginate(10);
     }
 
     public static function raceLike($searchTerm)
@@ -17,7 +17,10 @@ class Race extends Model
         return static::where('raceName', 'LIKE', '%' . $searchTerm . '%')->orWhere('raceType', 'LIKE', '%' . $searchTerm . '%')->get();
     }
 
-
+    public static function mtbRaces()
+    {
+        return static::where('raceType', 'MTB')->get();
+    }
     public function comments()
     {
         return $this->hasMany(Comment::class);

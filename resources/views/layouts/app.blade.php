@@ -19,14 +19,12 @@
     <link href="{{ asset('css/meanmenu.css') }}" rel="stylesheet">
 </head>
 <body>
-test
     @include('layouts.nav')
     @include('layouts.modals')
     {{--  {{var_dump($cart)}}  --}}
 
     <div class="container" id="container-content">
         @yield('content')
-        <div id="mtbMap"></div>
     </div>
 
     <!-- Scripts -->

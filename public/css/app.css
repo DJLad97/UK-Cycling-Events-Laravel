@@ -79,3 +79,12 @@ body {
   cursor: pointer;
 }
 
+a:not([href]):not([tabindex]) {
+  color: #009cbe;
+}
+
+#mtbMap {
+  height: 400px;
+  width: 100%;
+}
+

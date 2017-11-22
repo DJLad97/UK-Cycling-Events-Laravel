@@ -84,4 +84,16 @@ body{
     cursor: pointer;
 }
 
+.race-links{
+} 
+
+a:not([href]):not([tabindex]) {
+    color: rgb(0, 156, 190);
+}
+
+#mtbMap{
+    height: 400px;
+    width: 100%;
+}
+
 

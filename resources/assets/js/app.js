@@ -23,9 +23,25 @@
 
 $(document).ready(function(){
 
+    var modal = document.getElementById('login-modal');
+    
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    var modal2 = document.getElementById('register-modal');
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
     $('.login').click(function(){
-        $('#login-modal').css('display', 'block');
-        $('#register-modal').css('display', 'none');
+        // $('#login-modal').css('display', 'block');
+        // $('#register-modal').css('display', 'none');
     });
 
     $('.register').click(function(){
@@ -33,14 +49,18 @@ $(document).ready(function(){
         $('#login-modal').css('display', 'none');
     });
 
-    // $('.close').click(function(){
-    //     $('#login-form').removeClass('animate');
-    //     $('#login-form').addClass('close-animate');
-    // });
+    $('.close').click(function(){
+        $('#login-form').removeClass('animate');
+        $('#login-form').addClass('close-animate');
+    });
 
     $('header nav').ready(function(){
         $('header nav').meanmenu();
     });
+
+    $('body').click(function(e){
+        // $('.modal').css('display', 'none');
+    })
  
     // var modal = document.getElementById('login-modal');
 

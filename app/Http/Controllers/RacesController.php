@@ -14,6 +14,12 @@ class RacesController extends Controller
         return response()->json($race);
     }
 
+    public function mtbRaces(Request $request)
+    {
+        $races = Race::mtbRaces();
+        return response()->json($races);
+    }
+
     public function removeCartItem(Request $request)
     {
         \Cart::remove($request->itemID);

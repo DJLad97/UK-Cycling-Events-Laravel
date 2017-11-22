@@ -60,106 +60,70 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(1);
-__webpack_require__(2);
-module.exports = __webpack_require__(3);
+module.exports = __webpack_require__(5);
 
 
 /***/ }),
-/* 1 */
+
+/***/ 5:
 /***/ (function(module, exports) {
 
+window.initMap = function () {
+    var coords;
+    var infoWindow = new google.maps.InfoWindow();
+    var center = { lat: 53.270722, lng: -1.820286 };
+    var map = new google.maps.Map(document.getElementById('mtbMap'), {
+        zoom: 6,
+        center: center,
+        styles: [{ "featureType": "landscape", "stylers": [{ "hue": "#FFA800" }, { "saturation": 0 }, { "lightness": 0 }, { "gamma": 1 }] }, { "featureType": "road.highway", "stylers": [{ "hue": "#53FF00" }, { "saturation": -73 }, { "lightness": 40 }, { "gamma": 1 }] }, { "featureType": "road.arterial", "stylers": [{ "hue": "#FBFF00" }, { "saturation": 0 }, { "lightness": 0 }, { "gamma": 1 }] }, { "featureType": "road.local", "stylers": [{ "hue": "#00FFFD" }, { "saturation": 0 }, { "lightness": 30 }, { "gamma": 1 }] }, { "featureType": "water", "stylers": [{ "hue": "#00BFFF" }, { "saturation": 6 }, { "lightness": 8 }, { "gamma": 1 }] }, { "featureType": "poi", "stylers": [{ "hue": "#679714" }, { "saturation": 33.4 }, { "lightness": -25.4 }, { "gamma": 1 }] }]
+    });
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-// require('./bootstrap');
-
-// window.Vue = require('vue');
-
-// /**
-//  * Next, we will create a fresh Vue application instance and attach it to
-//  * the page. Then, you may begin adding components to this application
-//  * or customize the JavaScript scaffolding to fit your unique needs.
-//  */
-
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-// const app = new Vue({
-//     el: '#app'
-// });
-
-$(document).ready(function () {
-
-    var modal = document.getElementById('login-modal');
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    };
+    });
 
-    var modal2 = document.getElementById('register-modal');
+    $.ajax({
+        dataType: 'json',
+        method: 'GET',
+        url: '/mtbRaces',
+        success: function success(data) {
+            for (var i = 0; i < data.length; i++) {
+                coords = ConvertToLatLng(data[i].raceCoordinates);
 
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+                var marker = new google.maps.Marker({
+                    position: coords,
+                    map: map,
+                    title: data[i].raceName
+                });
+                var content = '<a href="races/' + data[i].id + '">More Information</a>';
+
+                google.maps.event.addListener(marker, 'click', function (marker, content, infoWindow) {
+                    return function () {
+                        infoWindow.setContent(content);
+                        infoWindow.open(map, marker);
+                    };
+                }(marker, content, infoWindow));
+            }
+            // console.log(data);
         }
-    };
-    $('.login').click(function () {
-        // $('#login-modal').css('display', 'block');
-        // $('#register-modal').css('display', 'none');
     });
+};
 
-    $('.register').click(function () {
-        $('#register-modal').css('display', 'block');
-        $('#login-modal').css('display', 'none');
-    });
-
-    $('.close').click(function () {
-        $('#login-form').removeClass('animate');
-        $('#login-form').addClass('close-animate');
-    });
-
-    $('header nav').ready(function () {
-        $('header nav').meanmenu();
-    });
-
-    $('body').click(function (e) {
-        // $('.modal').css('display', 'none');
-    });
-
-    // var modal = document.getElementById('login-modal');
-
-
-    // window.onclick = function(event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = "none";
-    //     }
-    // }
-});
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+function ConvertToLatLng(coords) {
+    var latLng = coords.split(/, ?/);
+    return new google.maps.LatLng(parseFloat(latLng[0]), parseFloat(latLng[1]));
+}
 
 /***/ })
-/******/ ]);
+
+/******/ });

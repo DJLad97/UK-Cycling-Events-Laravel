@@ -14,10 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $races = \App\Race::raceList();
-        View::composer('races.index', function($view) use ($races){
-            $view->with('races', $races);
-        });
+        //
     }
 
     /**

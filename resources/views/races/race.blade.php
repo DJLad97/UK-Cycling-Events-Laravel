@@ -12,7 +12,13 @@
     @endif
 
     @guest
-    <p>Please <a class="login a-pointer">log in</a> or <a href="{{route('register')}}">create an account</a> to sign up</p>
+    <p>Please 
+    <a class="race-links a-pointer" onclick="document.getElementById('login-modal').style.display='block'; document.getElementById('signup-modal').style.display='none'">
+        log in
+    </a> or 
+    <a class="race-links a-pointer" onclick="document.getElementById('register-modal').style.display='block'; document.getElementById('login-modal').style.display='none';">
+        create an account
+    </a> to sign up</p>
     @else
         @if(!$race->hasUserSignUp($race->id))
             <form action="/raceSignUps" method="post">
