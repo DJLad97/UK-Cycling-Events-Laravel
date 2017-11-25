@@ -39,19 +39,6 @@ class RacesController extends Controller
         $cart = \Cart::getContent()->toArray();
         return response()->json($cart);
     }
-
-    public function cart(Request $request)
-    {
-        /*
-            Assign a new $cart object to current cart
-            Check if an ajax request
-                Remove cart item by getting id from $request
-                Call get cart content again to get the new updated cart
-            endif
-
-            return  view with cart object
-        */
-    }
     /**
      * Display a listing of the resource.
      *
@@ -59,9 +46,8 @@ class RacesController extends Controller
      */
     public function index()
     {
-        $cart = \Cart::getContent()->toArray();
         $races = \App\Race::raceList();
-        return view('races.index', compact('cart', 'races'));
+        return view('races.index', compact('races'));
     }
 
     /**
