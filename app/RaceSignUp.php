@@ -17,4 +17,14 @@ class RaceSignUp extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function raceSignUpsForUser()
+    {
+        $raceSignUps = DB::table('race_sign_ups')->select('races.raceName', 'races.raceAddress', 'races.raceDate')
+                                    ->join('races', 'races.id', '=', 'race_sign_ups.race_id')
+                                    ->where('user_id', Auth::user()->id)
+                                    ->get();
+
+        return $raceSignUps;
+    }
 }
