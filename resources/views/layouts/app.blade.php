@@ -15,6 +15,7 @@
     {{--  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  --}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     <link href="{{ asset('css/nav.css') }}" rel="stylesheet">
     <link href="{{ asset('css/meanmenu.css') }}" rel="stylesheet">
 </head>
@@ -23,7 +24,7 @@
     @include('layouts.modals')
     {{--  {{var_dump($cart)}}  --}}
 
-    <div class="container" id="container-content">
+    <div class="container well-custom">
         @yield('content')
     </div>
 
@@ -32,8 +33,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/live-race-search.js') }}"></script>
-    <script src="{{ asset('js/races-map.js') }}"></script>
+    <script src="{{ asset('js/ajax.js') }}"></script>
+    <script src="{{ asset('js/races-map.js') }}"></script> 
     <script src="{{ asset('js/jquery.meanmenu.js') }}"></script>
     {{--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  --}}
     <script type="text/javascript">
@@ -53,12 +54,10 @@
                     var cart = data;
                     $('.dropdown-menu').empty();
                     $.each(data, function(){
-                        var nameKey = Object.keys(this)[1];
                         var idKey = Object.keys(this)[0];
-                        var name = this[nameKey];
+                        var nameKey = Object.keys(this)[1];
                         var id = this[idKey];
-                        console.log(id);
-                        console.log(name);
+                        var name = this[nameKey];
                         $('.dropdown-menu').append('<li>' + name + '</li><input type="button" onclick="removeItem(' + id + ')" class="btn btn-danger" name="removeItem" id="removeItem" value="Remove">')
                     });
                 }
