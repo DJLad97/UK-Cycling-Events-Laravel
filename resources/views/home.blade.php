@@ -8,11 +8,11 @@
 
 <div class="row">
     <div class="col-md-6 col-lg-6">
-        <div id="mtbMap"></div>
+        <div id="mtbMap" class="circle-map"></div>
     </div>
 
     <div class="col-md-6 col-lg-6">
-        <div id="roadMap"></div>
+        <div id="roadMap" class="circle-map"></div>
     </div>
 </div>
 @endsection
