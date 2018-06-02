@@ -39,6 +39,27 @@ class RacesController extends Controller
         $cart = \Cart::getContent()->toArray();
         return response()->json($cart);
     }
+
+    public function sortRaces(Request $request)
+    {
+        $sortBy = '';
+        $races = '';
+        switch($request['sortBy']){
+            case 'mtb':
+                $races = Race::where('raceType', 'MTB')->paginate(10);
+                break;
+            case 'road':
+                $races = Race::where('raceType', 'Road')->paginate(10);
+                break;
+            case 'startDate':
+                $races = Race::orderBy('raceDate', 'ASC')->paginate(10);
+                break;
+            case 'closingEntryDate':
+                $races = Race::orderBy('closingEntryDate', 'ASC')->paginate(10);
+                break;
+        }
+        return view('races.index', compact('races'));
+    }
     /**
      * Display a listing of the resource.
      *

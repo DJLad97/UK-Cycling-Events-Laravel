@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Race extends Model
 {
+    protected $primaryKey = 'id';
     public static function raceList()
     {
         return static::paginate(10);
@@ -27,9 +28,14 @@ class Race extends Model
         return static::where('raceType', 'Road')->get();
     }
 
+    public function race()
+    {
+        return $this->belongsTo('Race');
+    }
+
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany('App\Comment');
     }
 
     public function raceSignUps()

@@ -1,7 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/profile.css": "/css/profile.css",
     "/css/nav.css": "/css/nav.css",
     "/js/races-map.js": "/js/races-map.js",
-    "/js/live-race-search.js": "/js/live-race-search.js"
+    "/js/ajax.js": "/js/ajax.js"
 }

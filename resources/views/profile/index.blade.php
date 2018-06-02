@@ -16,5 +16,8 @@
     <h3>Hello, {{ Auth::user()->name }}</h3>
 
     <h4><strong>Your upcoming races</strong></h4>
-</div>
+    @foreach($raceSignUps as $race)
+        <li>{{($race->raceName)}}</li>
+    @endforeach
+    </div>
 @endsection
