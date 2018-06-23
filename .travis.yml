@@ -2,5 +2,10 @@ language: php
 php:
   - '7.1'
 before_script:
-  composer install
-  php artisan key:generate
+  - cp .env.travis .env
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan key:generate
+
+script:
+  - vendor/bin/phpunit
