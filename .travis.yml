@@ -2,7 +2,7 @@ language: php
 php:
 - '7.1'
 addons:
-	ssh_known_hosts: 178.62.84.70
+ssh_known_hosts: 178.62.84.70
 before_script:
 - composer self-update
 - composer install --no-interaction
