@@ -1,8 +1,8 @@
 language: php
 php:
 - '7.1'
-addons:
-ssh_known_hosts: 
+addons: 
+ssh_known_hosts:
 - 178.62.84.70
 - danjscott.co.uk
 before_script:
@@ -18,6 +18,5 @@ before_install:
   -in travis_rsa.enc -out travis_rsa -d
 - chmod 600 travis_rsa
 - mv travis_rsa ~/.ssh/id_rsa
-
 after_success:
 - bash ./deploy.sh
