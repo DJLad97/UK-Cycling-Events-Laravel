@@ -5,8 +5,6 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_rsa
 
-  git init
-
   git config user.name "Dan"
   git config user.email "b5014133@my.shu.ac.uk"
 
