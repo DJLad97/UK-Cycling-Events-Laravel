@@ -11,7 +11,7 @@ before_script:
 script:
 - vendor/bin/phpunit
 before_install:
-- openssl aes-256-cbc -K $encrypted_285ce119f0f4_key -iv $encrypted_285ce119f0f4_iv
+- openssl aes-256-cbc -K $encrypted_1c3486330cec_key -iv $encrypted_1c3486330cec_iv
   -in travis_rsa.enc -out travis_rsa -d
 - chmod 600 travis_rsa
-- mv travis_rsa ~/.ssh/id_rsa
+  - mv travis_rsa ~/.ssh/id_rsa
