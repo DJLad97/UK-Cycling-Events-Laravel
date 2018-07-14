@@ -1,0 +1,22 @@
+language: php
+php:
+- '7.1'
+addons: 
+ssh_known_hosts:
+- 178.62.84.70
+- danjscott.co.uk
+before_script:
+- composer self-update
+- composer install --no-interaction
+- cp .env.travis .env
+- php artisan key:generate
+- echo -e "Host danjscott.co.uk\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+script:
+- vendor/bin/phpunit
+before_install:
+- openssl aes-256-cbc -K $encrypted_1c3486330cec_key -iv $encrypted_1c3486330cec_iv
+  -in travis_rsa.enc -out travis_rsa -d
+- chmod 600 travis_rsa
+- mv travis_rsa ~/.ssh/id_rsa
+after_success:
+- bash ./deploy.sh

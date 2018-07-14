@@ -25,3 +25,4 @@ Route::get('/roadRaces', 'RacesController@roadRaces');
 Route::post('/raceSearch', 'RacesController@search');
 Route::post('/removeCartItem', 'RacesController@removeCartItem');
 Route::post('/raceSignUps', 'RaceSignUpsController@store');
+Route::get('/sortRaces', 'RacesController@sortRaces');

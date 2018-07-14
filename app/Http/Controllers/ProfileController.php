@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 class ProfileController extends Controller
 {
     public function __construct()
@@ -17,8 +17,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $raceSignUps = new \App\RaceSignUp();
-        return view('profile.index');
+        $raceSignUps = Auth::user()->getRaces();
+        return view('profile.index', compact('raceSignUps'));
     }
 
     /**

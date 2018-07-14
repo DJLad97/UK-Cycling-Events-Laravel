@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Collection;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -35,5 +37,16 @@ class User extends Authenticatable
     public function signUp(RaceSignUp $raceSignUps)
     {
         $this->raceSignUps()->save($raceSignUps);
+    }
+
+    public function getRaces()
+    {
+        $raceSignUps = $this::find(Auth::user()->id)->raceSignUps;
+        $races = new Collection();
+        foreach($raceSignUps as $val){
+            $race = Race::find($val->race_id);
+            $races->push($race);
+        }
+        return $races;
     }
 }
