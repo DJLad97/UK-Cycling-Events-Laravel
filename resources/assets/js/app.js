@@ -5,7 +5,12 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-// require('./bootstrap');
+import Comment from './components/Comment';
+
+import Example from './components/Example';
+
+import Races from './components/Races';
+
 
 // window.Vue = require('vue');
 

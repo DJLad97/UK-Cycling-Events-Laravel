@@ -2,6 +2,7 @@
 
 @section('content')
     <h5>Sory By</h5>
+
     <form action="/sortRaces" method="get">
         <select name="sortBy" class="form-control" id="sort">
             <option value="mtb">MTB Race</option>

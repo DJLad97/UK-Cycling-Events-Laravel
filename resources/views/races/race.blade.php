@@ -55,5 +55,6 @@
         @else
             <h2>YOU'VE ALREADY SIGNED UP</h2>
         @endif
+        <div id="comments"></div>
     @endguest
 @endsection

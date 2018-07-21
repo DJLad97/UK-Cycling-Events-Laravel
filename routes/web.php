@@ -22,6 +22,8 @@ Route::get('/getCart', 'RacesController@getCart');
 Route::get('/mtbRaces', 'RacesController@mtbRaces');
 Route::get('/roadRaces', 'RacesController@roadRaces');
 
+Route::get('/react-test', 'HomeController@reactTest');
+
 Route::post('/raceSearch', 'RacesController@search');
 Route::post('/removeCartItem', 'RacesController@removeCartItem');
 Route::post('/raceSignUps', 'RaceSignUpsController@store');

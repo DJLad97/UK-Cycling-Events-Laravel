@@ -11,9 +11,9 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .js('resources/assets/js/races-map.js', 'public/js')
-   .js('resources/assets/js/ajax.js', 'public/js')
+mix.react('resources/assets/js/app.js', 'public/js')
+   .react('resources/assets/js/races-map.js', 'public/js')
+   .react('resources/assets/js/ajax.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .sass('resources/assets/sass/profile.scss', 'public/css')
    .sass('resources/assets/sass/nav.scss', 'public/css');

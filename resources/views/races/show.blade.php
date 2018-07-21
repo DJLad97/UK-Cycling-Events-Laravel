@@ -10,4 +10,6 @@
     @else
         <li>{{ $race->entryPrice }}</li>
     @endif
+    
+    <div id="comments"></div>
 @endsection
