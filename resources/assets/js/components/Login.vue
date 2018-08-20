@@ -10,6 +10,7 @@
                 </div>
 
                 <div class="modal-body">
+                    <error-message v-if="loginErrors">Your email or password is incorrect</error-message>
                     <div class="form-group">
                         <label for="email" class="control-label">E-Mail Address</label>
                         <input id="email" v-model="email" type="email" class="text-box" name="email" placeholder="Email" required autofocus>
@@ -40,6 +41,7 @@
             return {
                 email: '',
                 password: '',
+                loginErrors: false
             }
         },
 
@@ -60,9 +62,11 @@
                     // alert(response);
                     // console.log(response);
                     this.$store.commit('toggleModal');
+                    this.loginErrors = false;
                 })
-                .catch(function(error){
+                .catch((error) => {
                     if(error.response){
+                        this.loginErrors = true;
                         console.log(error.response.data);
                     }
                 })

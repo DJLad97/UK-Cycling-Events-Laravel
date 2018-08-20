@@ -3,6 +3,14 @@ import './bootstrap';
 import router from './routes';
 import App from './App.vue';
 import store from './store';
+Vue.component('error-message',{
+    template: `
+    <div class="form-group error">
+        <span class="icon-alert-circle"></span>
+        <p class="error-message"><strong><slot></slot></strong></p>
+    </div>`
+});
+
 const app = new Vue({
     el: '#app',
     router,

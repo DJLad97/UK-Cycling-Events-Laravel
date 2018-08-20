@@ -18,6 +18,7 @@
     <link href="{{ mix('css/profile.css') }}" rel="stylesheet">
     <link href="{{ asset('css/meanmenu.min.css') }}" rel="stylesheet"> 
     <link href="{{ mix('css/nav.css') }}" rel="stylesheet">
+    <link href="{{ mix('fonts/icomoon/style.css')}}" rel="stylesheet">
 </head>
 <body>
     {{-- @include('layouts.nav')

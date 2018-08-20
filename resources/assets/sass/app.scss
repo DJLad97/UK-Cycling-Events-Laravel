@@ -257,6 +257,17 @@ a:not([href]):not([tabindex]) {
     grid-column-end: 2;
 }
 
+.error {
+    display: inline;
+    color: #a94442;
+    background-color: #f2dede;
+    padding: 0.5rem;
+}
+
+.error-message{
+    display: inline;
+}
+
 .modal-header h3 {
     margin-top: 0;
 }
