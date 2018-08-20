@@ -1,74 +1,40 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-// require('./bootstrap');
-
 // window.Vue = require('vue');
-
-// /**
-//  * Next, we will create a fresh Vue application instance and attach it to
-//  * the page. Then, you may begin adding components to this application
-//  * or customize the JavaScript scaffolding to fit your unique needs.
-//  */
-
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-// const app = new Vue({
-//     el: '#app'
-// });
-
-$(document).ready(function(){
-
-    var modal = document.getElementById('login-modal');
-    
-    
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-    var modal2 = document.getElementById('register-modal');
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-    $('.login').click(function(){
-        // $('#login-modal').css('display', 'block');
-        // $('#register-modal').css('display', 'none');
-    });
-
-    $('.register').click(function(){
-        $('#register-modal').css('display', 'block');
-        $('#login-modal').css('display', 'none');
-    });
-
-    $('.close').click(function(){
-        $('#login-form').removeClass('animate');
-        $('#login-form').addClass('close-animate');
-    });
-
-    $('header nav').ready(function(){
-        $('header nav').meanmenu();
-    });
-
-    $('body').click(function(e){
-        // $('.modal').css('display', 'none');
-    })
- 
-    // var modal = document.getElementById('login-modal');
-
-
-    // window.onclick = function(event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = "none";
-    //     }
-    // }
-
+import './bootstrap';
+import router from './routes';
+import App from './App.vue';
+import store from './store';
+const app = new Vue({
+    el: '#app',
+    router,
+    store,
+    template: '<App/>',
+    components: { App },
 });
+
+// new Vue({
+//     el: '#app',
+//     data: () => {
+//         return {
+//             races: [
+//                 {name: 'Race 1', signedUp: false},
+//                 {name: 'Race 2', signedUp: false},
+//                 {name: 'Race 3', signedUp: true},
+//                 {name: 'Race 4', signedUp: false},
+//             ]
+//         }
+//     },
+//     computed: {
+//         signedUpRaces(){
+//             return this.races.filter(race => race.signedUp);
+//         },
+
+//         notSignedUpRaces(){
+//             return this.races.filter(race => !race.signedUp);
+//         }
+//     },
+//     methods: {
+//         signUp(race){
+//             race.signedUp = true;
+//         }
+//     }
+// }).$mount('#app');

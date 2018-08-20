@@ -15,18 +15,18 @@ class CreateRacesTable extends Migration
     {
         Schema::create('races', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('raceType', 10);
-            $table->string('organiserName', 100);
-            $table->string('organiserEmail', 100);
-            $table->string('raceName', 100);
-            $table->date('raceDate');
-            $table->text('raceDescription', 100);
-            $table->string('raceAddress', 100);
-            $table->string('racePostcode', 30);
-            $table->string('raceCoordinates', 50);
-            $table->tinyInteger('isFree')->nullable();
-            $table->decimal('entryPrice', 10, 2)->nullable();
-            $table->date('closingEntryDate');
+            $table->string('type', 10);
+            $table->string('organiser_name', 100);
+            $table->string('organiser_email', 100);
+            $table->string('title', 100);
+            $table->date('start_date');
+            $table->date('closing_entry_date');
+            $table->text('description', 100);
+            $table->string('address', 100);
+            $table->string('postcode', 30);
+            $table->string('coordinates', 50);
+            $table->tinyInteger('is_free')->nullable();
+            $table->decimal('entry_price', 10, 2)->nullable();
             $table->timestamps();
         });
     }

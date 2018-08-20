@@ -12,17 +12,24 @@
 */
 
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/races', 'RacesController@index')->name('races');
-Route::get('/profile', 'ProfileController@index')->name('profile');
-Route::get('/races/{race}', 'RacesController@show');
-Route::get('/getCart', 'RacesController@getCart');
-Route::get('/mtbRaces', 'RacesController@mtbRaces');
-Route::get('/roadRaces', 'RacesController@roadRaces');
+Route::get('{path}', function () {
+    return view('home');
+})->where('path', '([A-z\d-\/_.]+)?');
 
-Route::post('/raceSearch', 'RacesController@search');
-Route::post('/removeCartItem', 'RacesController@removeCartItem');
-Route::post('/raceSignUps', 'RaceSignUpsController@store');
-Route::get('/sortRaces', 'RacesController@sortRaces');
+// Route::post('/api/login', 'UserController@login');
+
+
+// Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/races', 'RaceController@index')->name('races');
+// Route::get('/profile', 'ProfileController@index')->name('profile');
+// Route::get('/races/{race}', 'RaceController@show');
+// Route::get('/getCart', 'RaceController@getCart');
+// Route::get('/mtbRaces', 'RaceController@mtbRaces');
+// Route::get('/roadRaces', 'RaceController@roadRaces');
+
+// Route::post('/raceSearch', 'RaceController@search');
+// Route::post('/removeCartItem', 'RaceController@removeCartItem');
+// Route::post('/raceSignUps', 'RaceSignUpsController@store');
+// Route::get('/sortRaces', 'RaceController@sortRaces');

@@ -13,6 +13,18 @@ class Race extends Model
         return static::paginate(10);
     }
 
+    public static function upcomingRace($type){
+        return static::select('id', 'title', 'start_date', 'closing_entry_date')->where('closing_entry_date', '>', date('Y-m-d H:i:s'))->where('type', $type)->orderBy('closing_entry_date', 'ASC')->first();
+    }
+
+    public static function upcomingMtbRace(){
+        return static::select('title', 'start_date', 'closing_entry_date')->where('closing_entry_date', '>', date('Y-m-d H:i:s'))->where('type', 'MTB')->orderBy('closing_entry_date', 'ASC')->first();
+    }
+
+    public static function upcomingRoadRace(){
+        return static::select('title', 'start_date', 'closing_entry_date')->where('closing_entry_date', '>', date('Y-m-d H:i:s'))->where('type', 'Road')->orderBy('closing_entry_date', 'ASC')->first();
+    }
+
     public static function raceLike($searchTerm)
     {
         return static::where('raceName', 'LIKE', '%' . $searchTerm . '%')->orWhere('raceType', 'LIKE', '%' . $searchTerm . '%')->get();

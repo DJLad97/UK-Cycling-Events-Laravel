@@ -15,7 +15,7 @@ class ChangeColumnType extends Migration
     {
         //
         Schema::table('races', function($table) {
-            $table->longText('raceDescription')->change();
+            $table->longText('description')->change();
         });
     }
 

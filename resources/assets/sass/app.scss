@@ -1,77 +1,182 @@
-
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
 // Variables
 @import "variables";
-
 @font-face {
     font-family: MacFont;
-    src: url('/fonts/system_san_francisco_display_thin-webfont.woff2'); 
-
-    // src: url('public/fonts/system_san_francisco_display_thin-webfont.woff2') format('woff2'),
-        // url('public/fonts/system_san_francisco_display_thin-webfont.woff') format('woff');
+    src: url('/fonts/system_san_francisco_display_thin-webfont.woff2'); // src: url('public/fonts/system_san_francisco_display_thin-webfont.woff2') format('woff2'),
+    // url('public/fonts/system_san_francisco_display_thin-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 $font: MacFont;
 $default-font-size: 20px;
-
-body{
+html,
+body {
     font-family: $font;
     font-size: $default-font-size;
+    width: 100%;
+    height: 100%;
     background-color: rgb(238, 238, 238);
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
 }
 
-.well-custom{
+body.model-open {
+    overflow: hidden;
+}
+
+#app {
+    height: 100%;
+}
+
+#home-page {
+    height: 100%;
+}
+
+.well-custom {
     min-height: 20px;
     padding: 19px;
     margin-bottom: 20px;
     background-color: #f5f5f5;
 }
 
-.modal{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(236, 20, 20);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 185px;
-} 
-
-.model-content{
-    background-color: rgb(238, 238, 238);
-    margin: 5px auto;
-    color: #0e0e0e;
-    border-radius: 5px;
-    /*border: 1px solid #888;*/
+.navbar {
+    background-color: rgba(14, 14, 14, 0.4);
+    border-style: none;
 }
 
-.animate{
+.inline-header {
+    position: absolute;
+    z-index: 20000;
+    width: 100%;
+}
+
+#upcoming-races-carousel {
+    margin-bottom: 50px;
+}
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.mtb-image {
+    background-image: url('../../../public/images/mtb.jpg');
+}
+
+.road-image {
+    background-image: url('../../../public/images/road.jpg');
+}
+
+#carousel {
+    height: 100%;
+}
+
+.center-carousel-btns {
+    height: 80%;
+}
+
+.carousel-control-prev {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
+}
+
+.carousel-control-next {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
+}
+
+.carousel-indicators {
+    height: 20%;
+}
+
+.carousel-inner {
+    height: 80%;
+}
+
+.carousel-item {
+    height: 100%;
+}
+
+.carousel-caption {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    top: 40%;
+}
+
+.upcoming-race-text {
+    font-size: 1.8em;
+}
+
+.animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s;
 }
 
-@-webkit-keyframes animatezoom{
-    from {-webkit-transform: scale(0)}
-    to {-webkit-transform: scale(1)}
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
 }
 
-@keyframes animatezoom{
-    from {transform: scale(0)}
-    to {transform: scale(1)}
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+%ukce-btn-shared{
+    padding: 0.05rem 2.5rem;
+    background: transparent;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 200;
+    line-height: 66px;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background 0.5s ease;
+    transition: color 0.5s ease;
+}
+
+.ukce-btn {
+    // width: 298px;
+    // height: 70px;
+    // padding: .375rem .75rem;
+    @extend %ukce-btn-shared;
+    color: #fff;
+    border: 2px solid #fff;
 }
 
 
 
-.text-box{
+.ukce-btn:hover, .ukce-btn-dark:hover {
+
+    color: #ababab;
+    text-decoration: none;
+    cursor: pointer;
+}
+.ukce-btn-dark {
+    // width: 298px;
+    // height: 70px;
+    // padding: .375rem .75rem;
+    @extend %ukce-btn-shared;
+    color: #000;
+    border: 2px solid #000;
+}
+
+.text-box {
     background-color: inherit;
     outline: none;
     border: 0;
@@ -83,18 +188,15 @@ body{
     line-height: 1.42857143;
 }
 
-.a-pointer{
+.a-pointer {
     cursor: pointer;
 }
-
-.race-links{
-} 
 
 a:not([href]):not([tabindex]) {
     color: rgb(0, 156, 190);
 }
 
-.circle-map{
+.circle-map {
     padding: 20px 20px 20px 0;
     width: 400px;
     height: 400px;
@@ -103,7 +205,98 @@ a:not([href]):not([tabindex]) {
     z-index: 0;
 }
 
-.thick-line{
+.thick-line {
     border: 2px solid rgb(91, 91, 91);
 }
 
+.modal-mask {
+    display: block;
+    position: fixed;
+    z-index: 20000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: opacity .3s ease;
+}
+
+.modal-container {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 1% 2%;
+    border: 1px solid #888;
+    width: 45%;
+}
+
+.modal-body{
+    display: grid;
+    grid-column-gap: 70px;
+}
+
+#reg-name-input{ 
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+#reg-username-input{
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+#reg-email-input{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+#reg-password-input{
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+#reg-passwordconf-input{
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+.modal-header h3 {
+    margin-top: 0;
+}
+
+.modal-footer{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: center;
+    padding: 0.5rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.modal-default-button {
+    float: right;
+}
+
+/*
+   * The following styles are auto-applied to elements with
+   * transition="modal" when their visibility is toggled
+   * by Vue.js.
+   *
+   * You can easily play with the modal transition by editing
+   * these styles.
+   */
+
+.modal-enter {
+    opacity: 0;
+}
+
+.modal-leave-active {
+    opacity: 0;
+}
+
+.modal-enter .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}

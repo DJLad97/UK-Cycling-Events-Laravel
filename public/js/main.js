@@ -60,79 +60,90 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 222);
+/******/ 	return __webpack_require__(__webpack_require__.s = 218);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 222:
+/***/ 218:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(223);
+module.exports = __webpack_require__(219);
 
 
 /***/ }),
 
-/***/ 223:
+/***/ 219:
 /***/ (function(module, exports) {
 
-// RENAME THIS TO ajax.js
+
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+// require('./bootstrap');
+
+// window.Vue = require('vue');
+
+// /**
+//  * Next, we will create a fresh Vue application instance and attach it to
+//  * the page. Then, you may begin adding components to this application
+//  * or customize the JavaScript scaffolding to fit your unique needs.
+//  */m 
+
+// Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component('races');
 
 $(document).ready(function () {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+    var modal = document.getElementById('login-modal');
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
+    };
+
+    var modal2 = document.getElementById('register-modal');
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+    $('.login').click(function () {
+        // $('#login-modal').css('display', 'block');
+        // $('#register-modal').css('display', 'none');
     });
 
-    $.ajax({
-        dataType: 'json',
-        method: 'GET',
-        url: '/getCart',
-        success: function success(data) {
-            var cart = data;
-            $('.dropdown-menu').empty();
-            $.each(data, function () {
-                var nameKey = Object.keys(this)[1];
-                var idKey = Object.keys(this)[0];
-                var name = this[nameKey];
-                var id = this[idKey];
-                $('.dropdown-menu').append('<li>' + name + '</li><input type="button" onclick="removeItem(' + id + ')" class="btn btn-danger" name="removeItem" id="removeItem" value="Remove">');
-            });
-        }
+    $('.register').click(function () {
+        $('#register-modal').css('display', 'block');
+        $('#login-modal').css('display', 'none');
     });
 
-    $('#searchTerm').on('input', function () {
-        var searchKeyword = $('#searchTerm').val();
-        if (searchKeyword.length >= 1) {
-            $.ajax({
-                dataType: 'json',
-                method: 'POST',
-                url: '/raceSearch',
-                data: { 'searchTerm': searchKeyword },
-                success: function success(data) {
-                    $('ul#content').empty();
-
-                    $.each(data, function () {
-                        $('ul#content').append('<li><a href="/races/' + this.raceID + '">' + this.raceName + '</a></li>');
-                    });
-                },
-                error: function error(jqXHR, textStatus, errorThrown) {
-                    // What to do if we fail
-                    console.log(JSON.stringify(jqXHR));
-                    console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-                }
-            });
-        } else if (searchKeyword.length <= 0) {
-            $('ul#content').empty();
-        }
-
-        if (searchKeyword.length >= 1) {
-            $('#initial-results').hide();
-        } else {
-            $('#initial-results').show();
-        }
+    $('.close').click(function () {
+        $('#login-form').removeClass('animate');
+        $('#login-form').addClass('close-animate');
     });
+
+    $('header nav').ready(function () {
+        $('header nav').meanmenu();
+    });
+
+    $('body').click(function (e) {
+        // $('.modal').css('display', 'none');
+    });
+
+    // var modal = document.getElementById('login-modal');
+
+
+    // window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = "none";
+    //     }
+    // }
 });
 
 /***/ })

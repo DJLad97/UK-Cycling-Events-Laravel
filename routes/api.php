@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/register', 'UserController@signup');
+Route::post('/login', 'UserController@login');
+Route::get('/races', 'RaceController@index');
+Route::get('/race/{id}', 'RaceController@getRace');
+Route::get('/mtbRaces', 'RaceController@mtbRaces');
+Route::get('/upcomingRace/{type}', 'RaceController@getUpcomingRace');
+

@@ -5,12 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Race;
 
-class RacesController extends Controller
+class RaceController extends Controller
 {
-
+    public function __construct()
+    {
+        // $this->middleware('auth.jwt');
+    }
     public function search(Request $request)
     {   
         $race = Race::raceLike($request->searchTerm);
+        return response()->json($race);
+    }
+
+    public function getUpcomingRace($type)
+    {
+        $race = Race::upcomingRace($type);
         return response()->json($race);
     }
 
@@ -67,8 +76,8 @@ class RacesController extends Controller
      */
     public function index()
     {
-        $races = \App\Race::raceList();
-        return view('races.index', compact('races'));
+        $races = Race::raceList();
+        return response()->json($races);
     }
 
     /**

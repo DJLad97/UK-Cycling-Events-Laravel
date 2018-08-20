@@ -5,10 +5,24 @@
   font-style: normal;
 }
 
+html,
 body {
   font-family: MacFont;
   font-size: 20px;
+  width: 100%;
+  height: 100%;
   background-color: #eeeeee;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+#app {
+  height: 100%;
+}
+
+#home-page {
+  height: 100%;
 }
 
 .well-custom {
@@ -18,26 +32,74 @@ body {
   background-color: #f5f5f5;
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: #ec1414;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 185px;
+.navbar {
+  background-color: rgba(14, 14, 14, 0.4);
+  border-style: none;
 }
 
-.model-content {
-  background-color: #eeeeee;
-  margin: 5px auto;
-  color: #0e0e0e;
-  border-radius: 5px;
-  /*border: 1px solid #888;*/
+.inline-header {
+  position: absolute;
+  z-index: 20000;
+  width: 100%;
+}
+
+#upcoming-races-carousel {
+  margin-bottom: 50px;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.mtb-image {
+  background-image: url(/images/mtb.jpg?7a1df7231d9bb448e53380ec5ae01df8);
+}
+
+.road-image {
+  background-image: url(/images/road.jpg?ec0c870676f59c905d87c2327458d2ff);
+}
+
+#carousel {
+  height: 100%;
+}
+
+.center-carousel-btns {
+  height: 80%;
+}
+
+.carousel-control-prev {
+  background-image: -webkit-gradient(linear, right top, left top, color-stop(0, rgba(0, 0, 0, 0.0001)), to(rgba(0, 0, 0, 0.5)));
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.carousel-control-next {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(0, 0, 0, 0.0001)), to(rgba(0, 0, 0, 0.5)));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.carousel-indicators {
+  height: 20%;
+}
+
+.carousel-inner {
+  height: 80%;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+.carousel-caption {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  top: 40%;
+}
+
+.upcoming-race-text {
+  font-size: 1.8em;
 }
 
 .animate {
@@ -65,6 +127,34 @@ body {
     -webkit-transform: scale(1);
             transform: scale(1);
   }
+}
+
+.custom-btn {
+  width: 100px;
+  height: 70px;
+  color: white;
+  background: transparent;
+  border: 2px solid #0e0e0e;
+  font-size: 26px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 200;
+  line-height: 66px;
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 45px;
+  -webkit-transition: background 0.5s ease;
+  transition: background 0.5s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+.custom-btn:hover {
+  width: 100%;
+  height: 70px;
+  color: #eeeeee;
+  background: #0e0e0e;
+  border: 2px solid #0e0e0e;
 }
 
 .text-box {

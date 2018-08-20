@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->integer('race_id');
             $table->integer('user_id');
             $table->string('username', 50);
-            $table->text('commentContent', 500);
+            $table->text('content', 500);
             $table->timestamps();
         });
     }

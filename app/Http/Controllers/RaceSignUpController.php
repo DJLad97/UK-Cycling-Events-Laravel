@@ -12,7 +12,7 @@ use App\RaceSignUp;
 use App\User;
 use App\Race;
 
-class RaceSignUpsController extends Controller
+class RaceSignUpController extends Controller
 {
     /**
      * Display a listing of the resource.
