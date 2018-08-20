@@ -47,10 +47,6 @@
                 this.$store.commit('openModal');
             },
             toggleModal(val){
-                // If a modal is already open and a button is clicked to open another, the below will open the new modal automatically
-                if(this.currentModal !== ''){
-                    this.$store.commit('toggleModal');
-                }
                 this.currentModal = val;
                 this.$store.commit('toggleModal');
             },
