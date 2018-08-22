@@ -13,16 +13,21 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 class UserController extends Controller
 {
     public function signup(Request $request){
-        $this->validate($request, [
+        $rules = [
             'name' => 'required|string|max:200',
             'username' => 'required|string|max:100',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-        ]);
+        ];
+        
+        $messages = [
+            'name.required' => 'Please enter your name',
+            'username.required' => 'Please enter a username',
+            'email.required' => 'Please enter your email',
+            'password.required' => 'Please enter a password'
+        ];
 
-        // if($validator->fails()){
-        //     return response()->json($validator->messages(), 400);
-        // }
+        $this->validate($request, $rules, $messages);
 
         User::create([
             'name' => $request['name'],
