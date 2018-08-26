@@ -23,4 +23,5 @@ Route::get('/races', 'RaceController@index');
 Route::get('/race/{id}', 'RaceController@getRace');
 Route::get('/mtbRaces', 'RaceController@mtbRaces');
 Route::get('/upcomingRace/{type}', 'RaceController@getUpcomingRace');
+Route::get('/upcomingRaces/{type}', 'RaceController@getUpcomingRaces');
 

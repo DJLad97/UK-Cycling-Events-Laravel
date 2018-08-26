@@ -23,6 +23,11 @@ class RaceController extends Controller
         return response()->json($race);
     }
 
+    public function getUpcomingRaces($type){
+        $races = Race::upcomingRaces($type);
+        return response()->json($races);
+    }
+
     public function mtbRaces(Request $request)
     {
         $races = Race::mtbRaces();
