@@ -39,35 +39,8 @@
             </div>
         </carousel>
         <div class="container well-custom">
-            <div class="row">
-                <ul>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                    <li>hello world <br><br></li>
-                </ul>
-            </div>
+            <upcoming-races></upcoming-races>
+            <races-map></races-map>
         </div>
     </div>
 </template>
@@ -75,6 +48,8 @@
 <script>
     import store from '../store';
     import carousel from './Carousel.vue';
+    import UpcomingRaces from './UpcomingRaces.vue';
+    import RacesMap from './RacesMap.vue';
     export default {
         data(){ 
             return {
@@ -89,21 +64,23 @@
 
         methods: {
             getUpcomingMtbRace(){
-                axios.get('/api/upcomingRace/MTB')
+                axios.get('/api/upcomingRace/mtb')
                     .then((response) => {
                         this.upcomingMtbRace = response.data;
                     });
             },
 
             getUpcomingRoadRace(){
-                axios.get('/api/upcomingRace/Road')
+                axios.get('/api/upcomingRace/road')
                     .then((response) => {
                         this.upcomingRoadRace = response.data;
                     });
             }
         },
         components:{
-            carousel
+            carousel,
+            'upcoming-races': UpcomingRaces,
+            'races-map': RacesMap
         }
     }
 </script>

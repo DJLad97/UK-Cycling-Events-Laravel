@@ -13,6 +13,10 @@ class Race extends Model
         return static::paginate(10);
     }
 
+    public static function races($type){
+        return static::where('type', $type)->get();
+    }
+
     public static function upcomingRace($type){
         return static::select('id', 'title', 'start_date', 'closing_entry_date')->where('closing_entry_date', '>', date('Y-m-d H:i:s'))->where('type', $type)->orderBy('closing_entry_date', 'ASC')->first();
     }
@@ -21,19 +25,23 @@ class Race extends Model
         return static::select('id', 'title', 'start_date', 'closing_entry_date')->where('closing_entry_date', '>', date('Y-m-d H:i:s'))->where('type', $type)->orderBy('start_date', 'ASC')->limit(5)->get();
     }
 
+    public static function getCoordinates($type){
+        return static::select('coordinates')->where('type', $type)->get();
+    }
+
     public static function raceLike($searchTerm)
     {
-        return static::where('raceName', 'LIKE', '%' . $searchTerm . '%')->orWhere('raceType', 'LIKE', '%' . $searchTerm . '%')->get();
+        return static::where('title', 'LIKE', '%' . $searchTerm . '%')->orWhere('type', 'LIKE', '%' . $searchTerm . '%')->get();
     }
 
     public static function mtbRaces()
     {
-        return static::where('raceType', 'MTB')->get();
+        return static::where('type', 'mtb')->get();
     }
 
     public static function roadRaces()
     {
-        return static::where('raceType', 'Road')->get();
+        return static::where('type', 'road')->get();
     }
 
     public function race()

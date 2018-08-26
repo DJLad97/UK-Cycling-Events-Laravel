@@ -28,6 +28,16 @@ class RaceController extends Controller
         return response()->json($races);
     }
 
+    public function getCoordinates($type){
+        $coords = Race::getCoordinates($type);
+        return response()->json($coords);
+    }
+
+    public function getRaces($type){
+        $races = Race::races($type);
+        return response()->json($races);
+    }
+
     public function mtbRaces(Request $request)
     {
         $races = Race::mtbRaces();

@@ -22,6 +22,8 @@ Route::post('/login', 'UserController@login');
 Route::get('/races', 'RaceController@index');
 Route::get('/race/{id}', 'RaceController@getRace');
 Route::get('/mtbRaces', 'RaceController@mtbRaces');
+Route::Get('/races/{type}', 'RaceController@getRaces');
 Route::get('/upcomingRace/{type}', 'RaceController@getUpcomingRace');
 Route::get('/upcomingRaces/{type}', 'RaceController@getUpcomingRaces');
+Route::get('/coordinates/{type}', 'RaceController@getCoordinates');
 

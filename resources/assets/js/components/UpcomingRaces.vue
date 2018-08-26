@@ -1,44 +1,4 @@
 <template>
-    <!-- <div>
-        <h1 id="upcoming-races-header">UPCOMING RACES</h1>
-        <div id="upcoming-races-list">
-            <div></div>
-            <div id="mtb-races">
-                <h1>MTB RACES</h1>
-                <div v-for="race in upcomingMtbRaces" :key="race.id" class="event-box">
-                    <span class="race-date">
-                        <strong>15</strong>
-                        <em>Oct</em>
-                    </span>
-                    <div class="race-info">
-                        <router-link :to="'/race/' + race.id" class="non-nav">
-                            <h3 class="race-name">
-                                <strong>{{race.title}}</strong>
-                            </h3>
-                        </router-link>
-                        <span class="close-date">Entries Close: {{race.closing_entry_date}}</span>
-                    </div>
-                </div>
-            </div>
-            <div id="road-races">
-                <h1>ROAD RACES</h1>
-                <div v-for="race in upcomingRoadRaces" :key="race.id" class="event-box">
-                    <span class="race-date">
-                        <strong>15</strong>
-                        <em>Oct</em>
-                    </span>
-                    <div class="race-info">
-                        <router-link :to="'/race/' + race.id" class="non-nav">
-                            <h3 class="race-name">
-                                <strong>{{race.title}}</strong>
-                            </h3>
-                        </router-link>
-                        <span class="close-date">Entries Close: {{race.closing_entry_date}}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
     <div class="container">
         <h1 id="upcoming-races-header">UPCOMING RACES</h1>
         <div class="row">
@@ -108,7 +68,7 @@
 
         methods: {
             getUpcomingMtbRaces() {
-                axios.get('/api/upcomingRaces/MTB')
+                axios.get('/api/upcomingRaces/mtb')
                     .then((response) => {
                         this.upcomingMtbRaces = response.data;
                         // this.upcomingMtbRaces.forEach(element => {
@@ -122,7 +82,7 @@
             },
 
             getUpcomingRoadRaces() {
-                axios.get('/api/upcomingRaces/Road')
+                axios.get('/api/upcomingRaces/road')
                     .then((response) => {
                         this.upcomingRoadRaces = response.data;
                         this.upcomingRoadRaces = this.getMonthAndDay(this.upcomingRoadRaces);
