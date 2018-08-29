@@ -40,7 +40,15 @@
         </carousel>
         <div class="container well-custom">
             <upcoming-races></upcoming-races>
-            <races-map></races-map>
+            <!-- <races-map></races-map> -->
+            <div class="row">
+                <div class="col-md-6">
+                    <google-map :raceData="this.$store.getters.mapData[1]" name="mtb-map"></google-map>
+                </div>
+                <div class="col-md-6">
+                    <google-map :raceData="this.$store.getters.mapData[2]" name="road-map"></google-map>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -50,6 +58,8 @@
     import carousel from './Carousel.vue';
     import UpcomingRaces from './UpcomingRaces.vue';
     import RacesMap from './RacesMap.vue';
+    import GoogleMap from './GoogleMap.vue';
+
     export default {
         data(){ 
             return {
@@ -63,6 +73,18 @@
         },
 
         methods: {
+            getMapData(){
+                axios.get('/api/races/mtb')
+                    .then((response) => {
+                        this.$store.commit('setMapData', response.data);
+                        // this.mtbRaces = response.data;
+                    });
+                axios.get('/api/races/road')
+                    .then((response) => {
+                        this.$store.commit('setMapData', response.data);
+                        // this.roadRaces = response.data;
+                    });
+            },
             getUpcomingMtbRace(){
                 axios.get('/api/upcomingRace/mtb')
                     .then((response) => {
@@ -80,7 +102,8 @@
         components:{
             carousel,
             'upcoming-races': UpcomingRaces,
-            'races-map': RacesMap
+            'races-map': RacesMap,
+            'google-map': GoogleMap
         }
     }
 </script>

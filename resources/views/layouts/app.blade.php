@@ -18,7 +18,7 @@
     <link href="{{ mix('css/profile.css') }}" rel="stylesheet">
     <link href="{{ asset('css/meanmenu.min.css') }}" rel="stylesheet"> 
     <link href="{{ mix('css/nav.css') }}" rel="stylesheet">
-    <link href="{{ mix('fonts/icomoon/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('fonts/icomoon/style.css')}}" rel="stylesheet">
 </head>
 <body>
     {{-- @include('layouts.nav')
@@ -40,6 +40,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhL0vam5RYKqOF7L_stkM6OJbQ7vSqRP0"></script> --}}
 
     <script src="{{ mix('js/app.js') }}"></script>
     {{-- <script src="{{ mix('js/main.js') }}"></script>

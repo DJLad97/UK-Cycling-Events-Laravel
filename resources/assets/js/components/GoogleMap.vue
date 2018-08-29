@@ -6,7 +6,7 @@
 import $Scriptjs from 'scriptjs';
 
 export default {
-    props: ['name', 'data'],
+    props: ['name', 'raceData'],
     data(){
         return {
             mapName: this.name,
@@ -17,11 +17,15 @@ export default {
         $Scriptjs('https://maps.googleapis.com/maps/api/js?key=AIzaSyDhL0vam5RYKqOF7L_stkM6OJbQ7vSqRP0', () => {
             this.initMap()
         });
+
     },
 
     methods: {
         initMap(){
-            var data = this.data;
+            // console.log(this.raceData);
+            // var data = this.$store.getters.mapData[1];
+            // console.log(this.raceData);
+            var data = this.raceData;
             var coords;
             var infoWindow = new google.maps.InfoWindow();
             var center = {lat: 53.270722, lng: -1.820286};
@@ -39,7 +43,7 @@ export default {
                     map: this.map,
                     title: data[i].title
                 });
-                var content = '<a href="races/' + data[i].id + '">More Information</a>';
+                var content = '<a href="races/' + data[i].id + '">' + data[i].type + ' - <br>More Information</a>';
                 google.maps.event.addListener(marker, 'click', 
                     function(marker, content, infoWindow){
                         return function(){
@@ -63,7 +67,7 @@ export default {
     padding: 20px 20px 20px 0;
     width: 400px;
     height: 400px;
-    border-radius: 100%;
+    /* border-radius: 100%; */
     margin-top: 90px;
     z-index: 0;
     position: relative;

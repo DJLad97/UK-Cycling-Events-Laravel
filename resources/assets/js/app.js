@@ -15,6 +15,24 @@ const app = new Vue({
     el: '#app',
     router,
     store,
+    created(){
+        this.getMapData();
+
+    },
+    methods: {
+        getMapData(){
+            axios.get('/api/races/mtb')
+                .then((response) => {
+                    this.$store.commit('setMapData', response.data);
+                    // this.mtbRaces = response.data;
+                });
+            axios.get('/api/races/road')
+                .then((response) => {
+                    this.$store.commit('setMapData', response.data);
+                    // this.roadRaces = response.data;
+                });
+        }
+    },
     template: '<App/>',
     components: { App },
 });
