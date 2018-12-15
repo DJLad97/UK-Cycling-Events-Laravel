@@ -15,17 +15,38 @@ class Race extends Model
 
     public static function raceLike($searchTerm)
     {
-        return static::where('raceName', 'LIKE', '%' . $searchTerm . '%')->orWhere('raceType', 'LIKE', '%' . $searchTerm . '%')->get();
+        return static::where('title', 'LIKE', '%' . $searchTerm . '%')->orWhere('type', 'LIKE', '%' . $searchTerm . '%')->get();
     }
 
     public static function mtbRaces()
     {
-        return static::where('raceType', 'MTB')->get();
+        return static::where('type', 'MTB')->get();
     }
 
     public static function roadRaces()
     {
-        return static::where('raceType', 'Road')->get();
+        return static::where('type', 'Road')->get();
+    }
+
+    public static function upcomingRace($type){
+        return static::select('id', 'title', 'start_date', 'closing_entry_date')
+                        ->where('closing_entry_date', '>', date('Y-m-d H:i:s'))
+                        ->where('type', $type)
+                        ->orderBy('closing_entry_date', 'ASC')
+                        ->first();
+    }
+
+    public static function upcomingRaces($type){
+        return static::select('id', 'title', 'start_date', 'closing_entry_date')
+                        ->where('closing_entry_date', '>', date('Y-m-d H:i:s'))
+                        ->where('type', $type)
+                        ->orderBy('start_date', 'ASC')
+                        ->limit(5)
+                        ->get();
+    }
+
+    public static function getCoordinates($type){
+        return static::select('coordinates')->where('type', $type)->get();
     }
 
     public function race()
@@ -46,7 +67,7 @@ class Race extends Model
     public function hasUserSignUp($raceID)
     {
         $signedUp = false;
-        $raceIDs = RaceSignUp::where('user_id', Auth::id())->pluck('race_id')->toArray();
+        $raceIDs = RaceSignUp::where('user_id', Auth::id())->pluck('id')->toArray();
 
         if(in_array($raceID, $raceIDs))
             $signedUp = true;

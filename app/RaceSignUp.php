@@ -20,7 +20,7 @@ class RaceSignUp extends Model
 
     public function raceSignUpsForUser()
     {
-        $raceSignUps = DB::table('race_sign_ups')->select('races.raceName', 'races.raceAddress', 'races.raceDate')
+        $raceSignUps = DB::table('race_sign_ups')->select('races.title', 'races.address', 'races.start_date')
                                     ->join('races', 'races.id', '=', 'race_sign_ups.race_id')
                                     ->where('user_id', Auth::user()->id)
                                     ->get();
